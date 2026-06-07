@@ -1,0 +1,2 @@
+# Copy to terraform.tfvars and set your image URI.
+container_uri = "123456789012.dkr.ecr.us-east-1.amazonaws.com/data-engineer-agent:latest"
