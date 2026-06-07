@@ -25,7 +25,8 @@ observability that turn that configuration into a running agent.
 │       └── README.md        # Full module documentation (inputs/outputs)
 └── examples/
     ├── basic/               # Minimal harness, default Bedrock model
-    └── complete/            # Tools, inline function, limits, truncation
+    ├── complete/            # Tools, inline function, limits, truncation
+    └── with-skills/         # Data Engineering agent: custom image + Agent Skills
 ```
 
 ## Quick start

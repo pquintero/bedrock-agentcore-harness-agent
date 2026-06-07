@@ -68,6 +68,8 @@ See the [`examples/`](../../examples) directory:
   Bedrock model and a module-managed execution role.
 - [`examples/complete`](../../examples/complete) – built-in tools (browser + code
   interpreter), an inline function, execution limits, and truncation.
+- [`examples/with-skills`](../../examples/with-skills) – Data Engineering agent
+  using a custom container image with baked-in Agent Skills.
 
 ### Bring your own execution role
 
