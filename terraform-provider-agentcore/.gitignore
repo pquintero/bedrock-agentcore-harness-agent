@@ -1,0 +1,7 @@
+# Compiled provider binary
+terraform-provider-agentcore
+dist/
+
+# Test artifacts
+*.test
+coverage.out

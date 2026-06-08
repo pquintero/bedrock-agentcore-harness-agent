@@ -22,7 +22,7 @@ provider "aws" {
 module "coding_agent" {
   source = "../../modules/agentcore-harness"
 
-  harness_name = "coding_agent"
+  harness_name = "coding_agent_dm"
 
   model = {
     bedrock = {

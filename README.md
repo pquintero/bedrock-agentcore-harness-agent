@@ -15,19 +15,37 @@ observability that turn that configuration into a running agent.
 ```
 .
 ├── modules/
-│   └── agentcore-harness/   # Reusable Terraform module (the harness + IAM role)
+│   ├── agentcore-harness/   # Reusable module: the harness + IAM role
+│   │   ├── main.tf
+│   │   ├── iam.tf
+│   │   ├── locals.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── versions.tf
+│   │   └── README.md
+│   └── agentcore-registry/  # Register agents in the AWS Agent Registry (CLI-backed)
 │       ├── main.tf
-│       ├── iam.tf
-│       ├── locals.tf
 │       ├── variables.tf
 │       ├── outputs.tf
 │       ├── versions.tf
-│       └── README.md        # Full module documentation (inputs/outputs)
+│       ├── scripts/         # AWS CLI scripts driven by local-exec
+│       └── README.md
 └── examples/
     ├── basic/               # Minimal harness, default Bedrock model
     ├── complete/            # Tools, inline function, limits, truncation
-    └── with-skills/         # Data Engineering agent: custom image + Agent Skills
+    ├── with-skills/         # Data Engineering agent: custom image + Agent Skills
+    └── with-registry/       # Deploy a harness and register it in the Agent Registry
 ```
+
+For the Agent Registry:
+
+- **`terraform-provider-agentcore/`** — a custom Terraform provider written in
+  **Go** (Plugin Framework + AWS SDK for Go v2) exposing `agentcore_registry` and
+  `agentcore_registry_record` resources. Build/install it locally (it is not
+  published yet); see its README.
+- **`modules/agentcore-registry/`** — a thin module on top of that provider that
+  creates a registry and registers records, with full plan/apply/destroy and
+  state tracking.
 
 ## Quick start
 
