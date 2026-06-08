@@ -1,0 +1,16 @@
+# Local development override for the agentcore provider.
+#
+# 1. Build & install the provider:   make install   (from the provider root)
+# 2. Point Terraform at this file:    export TF_CLI_CONFIG_FILE=$(pwd)/dev.tfrc
+# 3. Run terraform WITHOUT `terraform init` (dev_overrides skips it).
+#
+# Replace <GOBIN> with the output of:  go env GOBIN || echo "$(go env GOPATH)/bin"
+
+provider_installation {
+  dev_overrides {
+    "pquintero/agentcore" = "<GOBIN>"
+  }
+
+  # For all other providers, use the normal registry.
+  direct {}
+}
